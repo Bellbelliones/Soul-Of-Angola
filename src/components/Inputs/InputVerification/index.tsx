@@ -1,5 +1,5 @@
 import { useState } from "react" // teu input existente
-import { InputFloatingV2 } from '../../InputFloatingV2/index';
+import { InputFloatingV2 } from '../InputFloatingV2/index';
 
 export default function InputVerification() {
   const [value, setValue] = useState("")
