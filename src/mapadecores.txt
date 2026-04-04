@@ -1,0 +1,80 @@
+Vermelha: #CC092F
+Amarela: #F7C600
+Preta: #0F0F0F
+
+
+_______________________
+loginwith: #F6F3ED
+
+_________________________
+bg-tela: #FAFAFA
+
+
+_________________________
+instaltei o React Router para as rotas
+
+npm install react-router-dom
+
+
+alterei o main.tsx
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+
+import { BrowserRouter } from "react-router-dom"
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>,
+)
+
+E agora crirei as ritas no App.tsx
+
+import { Routes, Route } from "react-router-dom"
+
+import Login from "./pages/Login"
+import SignUp from "./pages/SignUp"
+import Home from "./pages/Home"
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+    </Routes>
+  )
+}
+
+Para usar a navegação clicando no botão tu fazes:
+
+
+importa o Navigate
+
+import { useNavigate } from "react-router-dom"
+
+Depois cria o Navigate
+
+const navigate = useNavigate()
+
+e en seguida usa no botão
+
+<button onClick={() => navigate("/login")}>
+  Ir para Login
+</button>
+
+
+
+
+
+para pegar eventos de click no botão, na interface adiciona
+
+
+onClick :(e: React.MouseEvent<HTMLButtonElement>) => void
+
+para input adiciona:
+
+onClick: (e: React.ChangeEvent<HTMLInputElement>) => void
