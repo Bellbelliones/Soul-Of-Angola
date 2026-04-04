@@ -1,9 +1,12 @@
+import Login from "../Login";
 
 export default function Home()
 {
     return (
         <>
-            <div>Hellor World</div>
+            <div>
+                <Login></Login>
+            </div>
         </>
     );
 }
