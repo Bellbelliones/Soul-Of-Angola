@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { InputFloating } from '../../components/Inputs/InputFloating';
-import { LoginWith } from '../../components/LoginWith';
-import { ButtonConfirm } from '../../components/Buttons/ButtonConfirm';
+import { InputFloating } from '../../../components/Inputs/InputFloating';
+import { LoginWith } from '../../../components/LoginWith';
+import { ButtonConfirm } from '../../../components/Buttons/ButtonConfirm';
 import { Navigate, useNavigate } from 'react-router-dom';
 export default function Login()
 {

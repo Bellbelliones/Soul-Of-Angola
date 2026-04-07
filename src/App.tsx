@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom"
 import Home from './pages/Home/index';
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUP";
+import Login from "./pages/auth/Login";
+import SignUp from "./pages/auth/SignUP";
 
 //CSS
 import "./styles/global.css"
-import GetEmail from "./pages/ForgotPassword/GetEmail";
-import GetCode from "./pages/ForgotPassword/GetCode";
-import ChangePassword from "./pages/ForgotPassword/ChangePassword";
+import GetEmail from "./pages/auth/ForgotPassword/GetEmail";
+import GetCode from "./pages/auth/ForgotPassword/GetCode";
+import ChangePassword from "./pages/auth/ForgotPassword/ChangePassword";
 
 export default function App() {
   return (
