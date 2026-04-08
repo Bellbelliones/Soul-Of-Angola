@@ -15,7 +15,7 @@ import Contacts from "./pages/Contacts";
 export default function App() {
   return (
     <Routes >
-      {/*------NORMAL ROOTS------*/}
+      {/*------NORMAL ROOTES------*/}
       <Route path="/" element={<Home />} />
       <Route path="/feed" element={<Feed />} />
       <Route path="/services" element={<Services />} />
@@ -23,7 +23,7 @@ export default function App() {
       {/*------------*/}
 
 
-      {/*------Autg------*/}
+      {/*------Auths------*/}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/getemail" element={<GetEmail />} />

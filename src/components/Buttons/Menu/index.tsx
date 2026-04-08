@@ -52,7 +52,7 @@ export const Menu = () => {
         </div>
 
         {/* Botão Login (mobile opcional) */}
-        <button className="md:hidden bg-[#CC092F] p-3  text-white px-3 py-1 rounded-md text-sm">
+        <button className="md:hidden bg-[#CC092F] p-3  text-white px-3 py-1 rounded-md text-sm font-title font-bold">
           Login
         </button>
 
@@ -83,7 +83,7 @@ export const Menu = () => {
         <div className="flex flex-col justify-between flex-1">
 
           {/* Menu */}
-          <ul className="flex flex-col gap-6 p-6 text-lg">
+          <ul className="flex flex-col gap-6 p-6 text-lg font-title text-2xl font-bold">
             <li className="flex" onClick={() => navigate("/")}>
               <span className="mr-2">
                 <Home />

@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+/* Fonte padrão do sistema */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Classe para texto normal */
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Classe para títulos */
+.font-title {
+  font-family: 'Poppins', sans-serif;
+}
