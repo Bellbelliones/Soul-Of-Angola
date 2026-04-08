@@ -78,3 +78,15 @@ onClick :(e: React.MouseEvent<HTMLButtonElement>) => void
 para input adiciona:
 
 onClick: (e: React.ChangeEvent<HTMLInputElement>) => void
+
+_________________________
+para o uso de icons usou-se o lucid-react
+
+para instalar
+npm install lucide-react
+
+depois roda
+
+npm audit fix
+
+para corrigir possiveis erros
