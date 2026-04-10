@@ -14,23 +14,20 @@ export default function Feed()
             </header>
             <main>
                 <div>
-                    <h1 className=" m-4 text-center font-title text-3xl font-bold">FEED NEWS</h1>
+                    <h1 className="m-4 text-3xl font-bold text-center  font-title">FEED NEWS</h1>
                 </div>
                 <div>
                     <CardContainerGrid />
-                </div>
-                <div>
-                    <CreatePost />
                 </div>
             </main>
             <footer>
                 
             </footer>
-            <div className="h-screen flex justify-center items-center ">
+            <div className="flex items-center justify-center h-screen ">
                 <div>
 
                 </div>
-                <div className="flex justify-center items-center flex-col w-1/2">
+                <div className="flex flex-col items-center justify-center w-1/2">
                     <h1>Clica no Botão</h1>
                     <button 
                         onClick = {() => navigate("/login")}

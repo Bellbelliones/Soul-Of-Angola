@@ -11,6 +11,8 @@ import ChangePassword from "./pages/auth/ForgotPassword/ChangePassword";
 import Services from "./pages/Services";
 import Feed from "./pages/Feed";
 import Contacts from "./pages/Contacts";
+import Post from "./pages/Post";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (
@@ -19,7 +21,11 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/feed" element={<Feed />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/post" element={<Post />} />
       <Route path="/contacts" element={<Contacts />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/analysis" element={<Post />} />
+      <Route path="/settings" element={<Contacts />} />
       {/*------------*/}
 
 
