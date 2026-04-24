@@ -5,10 +5,9 @@ import { LogoOut } from "../../../hooks/LogOut";
 
 interface BtnInOutProps
 {
-    status: string,
     type: number,
 }
-export const BtnInOut = ({status, type}:BtnInOutProps) =>{
+export const BtnInOut = ({ type}:BtnInOutProps) =>{
     const navigate = useNavigate();
     const {user} = useUser();
 

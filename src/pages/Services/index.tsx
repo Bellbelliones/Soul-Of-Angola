@@ -1,9 +1,7 @@
-import {Navigate, useNavigate} from "react-router-dom";
-import { Maps } from "../../components/Maps";
+import { useNavigate} from "react-router-dom";
+
 import { Menu } from '../../components/Buttons/Menu/index';
-import { VideoShowFront } from '../../components/VideoShowFront/index';
 import "../../styles/global.css"
-import { Parceiros } from "../../components/Parceiros";
 
 export default function Services()
 {
@@ -21,11 +19,11 @@ export default function Services()
             <footer>
                 
             </footer>
-            <div className="h-screen flex justify-center items-center ">
+            <div className="flex items-center justify-center h-screen ">
                 <div>
 
                 </div>
-                <div className="flex justify-center items-center flex-col w-1/2">
+                <div className="flex flex-col items-center justify-center w-1/2">
                     <h1>Clica no Botão</h1>
                     <button 
                         onClick = {() => navigate("/login")}

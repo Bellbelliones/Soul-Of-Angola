@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { InputFloating } from '../../../components/Inputs/InputFloating';
 import { LoginWith } from '../../../components/LoginWith';
 import { ButtonConfirm } from '../../../components/Buttons/ButtonConfirm';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { supabase } from '../../../lib/supabase';
 import { useUser } from '../../../hooks/useUser';
 

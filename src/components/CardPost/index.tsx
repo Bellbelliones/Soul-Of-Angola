@@ -32,7 +32,7 @@ export const CardPost = ({cardImage, cardVideo, title, descrition, userImage, us
 
   return (
     <div
-      className="relative w-full aspect-[9/16] rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition duration-300"
+      className="relative w-full overflow-hidden transition duration-300 shadow-md cursor-pointer aspect-9/16 rounded-xl hover:shadow-xl"
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onTouchStart={handleEnter}
@@ -60,10 +60,10 @@ export const CardPost = ({cardImage, cardVideo, title, descrition, userImage, us
       </video>
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
 
       {/* TEXTO */}
-      <div className="absolute bottom-0 left-0 p-2 text-white w-full">
+      <div className="absolute bottom-0 left-0 w-full p-2 text-white">
 
         <h3 className="text-sm font-semibold leading-tight truncate">
           {title}
@@ -77,7 +77,7 @@ export const CardPost = ({cardImage, cardVideo, title, descrition, userImage, us
         <div className="flex items-center gap-2 mt-2">
           <img
             src={userImage}
-            className="w-6 h-6 rounded-full object-cover"
+            className="object-cover w-6 h-6 rounded-full"
           />
           <span className="text-xs text-gray-300 truncate">
             @{userName}

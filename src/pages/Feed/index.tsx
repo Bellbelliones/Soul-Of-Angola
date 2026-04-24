@@ -2,7 +2,6 @@ import { useNavigate} from "react-router-dom";
 import { Menu } from '../../components/Buttons/Menu/index';
 import "../../styles/global.css"
 import { CardContainerGrid } from "../../components/CardContainerGrid";
-import { CreatePost } from "../../components/CreatePost";
 
 export default function Feed()
 {
@@ -14,7 +13,7 @@ export default function Feed()
             </header>
             <main>
                 <div>
-                    <h1 className="m-4 text-3xl font-bold text-center  font-title">FEED NEWS</h1>
+                    <h1 className="m-4 text-3xl font-bold text-center font-title">FEED NEWS</h1>
                 </div>
                 <div>
                     <CardContainerGrid />

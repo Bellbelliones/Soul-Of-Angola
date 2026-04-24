@@ -68,7 +68,7 @@ export const CreatePost = () => {
             Preview
           </h2>
 
-          <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden shadow-xl">
+          <div className="relative w-full overflow-hidden shadow-xl aspect-9/16 rounded-xl">
 
             {/* IMAGEM */}
             {image && (
@@ -79,7 +79,7 @@ export const CreatePost = () => {
             )}
 
             {/* OVERLAY */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent"></div>
 
             {/* TEXTO */}
             <div className="absolute bottom-0 w-full p-4">

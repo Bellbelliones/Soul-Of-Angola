@@ -14,7 +14,6 @@ import { BtnInOut } from "../BtnInOut";
 import { useUser } from "../../../hooks/useUser";
 
 export const Menu = () => {
-  const [status, setStatus] = useState("");
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [advanced, setAdvanced] = useState(false);
@@ -137,7 +136,7 @@ export const Menu = () => {
               </ul>
 
               <div className="p-6 border-t border-white/10">
-                <BtnInOut status={status} type={1} />
+                <BtnInOut  type={1} />
               </div>
             </div>
 
@@ -167,7 +166,7 @@ export const Menu = () => {
 
               {/* LOGOUT */}
               <div className="p-6 border-t border-white/10">
-                <BtnInOut status={status} type={2} />
+                <BtnInOut  type={2} />
               </div>
 
             </div>
@@ -196,7 +195,7 @@ export const Menu = () => {
                 <li className="flex gap-2 cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out" onClick={() => navigate("/settings")}><Settings /> Settings</li>
           </ul>
 
-          <BtnInOut status={status} type={3} />
+          <BtnInOut  type={3} />
         </div>
       </div>
 

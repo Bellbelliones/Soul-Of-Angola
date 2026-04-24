@@ -23,7 +23,7 @@ export const ProfileComp = () => {
     <div className="w-full min-h-screen bg-gray-100">
 
       {/* 🔵 CAPA */}
-      <div className="relative w-full h-40 sm:h-52 md:h-64 bg-gradient-to-r from-[#CC092F] to-[#F7C600]">
+      <div className="relative w-full h-40 sm:h-52 md:h-64 bg-linear-to-r from-[#CC092F] to-[#F7C600]">
         <button className="absolute px-3 py-1 text-xs text-white transition rounded-lg bottom-2 right-2 sm:bottom-4 sm:right-4 bg-black/50 hover:bg-black/70">
           Editar capa
         </button>

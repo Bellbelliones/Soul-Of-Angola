@@ -1,4 +1,3 @@
-import {Navigate, useNavigate} from "react-router-dom";
 import { Menu } from '../../components/Buttons/Menu/index';
 import { VideoShowFront } from '../../components/VideoShowFront/index';
 import "../../styles/global.css"
@@ -8,7 +7,6 @@ export default function Home()
 {
     
     //Fim da conexão
-    const navigate = useNavigate();
     return (
         <>
 
