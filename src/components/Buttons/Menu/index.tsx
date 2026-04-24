@@ -4,31 +4,26 @@ import {
   LayoutGrid,
   Briefcase,
   Settings,
-  Heart,
-  Download,
-  Globe,
-  MapPin,
-  Monitor,
-  Trash,
-  Clock,
-  LogOut,
   User,
   PlusSquare,
   BarChart3,
-  Wrench,
   Phone,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { BtnInOut } from "../BtnInOut";
+import { useUser } from "../../../hooks/useUser";
 
 export const Menu = () => {
-  const navigate = useNavigate();
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [advanced, setAdvanced] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
-  const isLogged = true;
+  //Constante para usuário
+  const {user} = useUser()
+  
+
   return (
     <nav className="relative z-50 px-4 py-3 bg-[#0F0F0F] text-white border-b border-white/10">
 
@@ -63,11 +58,11 @@ export const Menu = () => {
 
           <button
             onClick={() =>
-              isLogged ? setProfileOpen(true) : navigate("/login")
+              user ? setProfileOpen(true) : navigate("/login")
             }
             className="bg-[#CC092F] px-4 py-1.5 rounded-md font-bold"
           >
-            {isLogged ? "Perfil" : "Login"}
+            {user ? user.name : "Login"}
           </button>
         </div>
       </div>
@@ -100,10 +95,10 @@ export const Menu = () => {
 
           {/* PERFIL */}
           <div className="flex items-center gap-3 px-4 pb-4 border-b border-white/10">
-            <img src="/logo2.png" className="rounded-full w-14 h-14" />
+            <img src={user?.avatar_url || "/logo2.png"} className="rounded-full w-14 h-14" />
             <div>
-              <p className="text-sm font-bold">@Rodolfo Guzman</p>
-              <p className="text-xs text-gray-400">rodolfoguzman0326@email.com</p>
+              <p className="text-sm font-bold">{user ? user.name : "seunome"}</p>
+              <p className="text-xs text-gray-400">{user ? user.email : "seuemail@gmail.com"}</p>
             </div>
           </div>
 
@@ -134,7 +129,7 @@ export const Menu = () => {
 
                 <li
                   onClick={() => setAdvanced(true)}
-                  className="flex gap-2 text-[#F7C600] font-bold"
+                  className="flex gap-2 text-[#F7C600] font-bold cursor-pointer"
                 >
                   <Settings /> Avançando
                 </li>
@@ -156,7 +151,7 @@ export const Menu = () => {
               {/* HEADER */}
               <div className="flex items-center gap-3 p-4 border-b border-white/10">
                 <button onClick={() => setAdvanced(false)}>←</button>
-                <span className="text-[#F7C600] font-bold">
+                <span className="text-[#F7C600] font-bold cursor-pointer">
                   Avançado
                 </span>
               </div>
@@ -190,7 +185,7 @@ export const Menu = () => {
         <div className="flex flex-col h-full p-6">
 
           <div className="flex justify-between mb-6">
-            <h2 className="text-[#F7C600] font-bold">Perfil</h2>
+            <h2 className="text-[#F7C600] font-bold">{user ? user.name : "Perfil"}</h2>
             <button onClick={() => setProfileOpen(false)}>✕</button>
           </div>
 

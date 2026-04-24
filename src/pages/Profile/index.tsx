@@ -1,5 +1,5 @@
 import { Menu } from "../../components/Buttons/Menu";
-import { ProfileCard } from "../../components/ProfileCard";
+import { ProfileComp } from "../../components/Profile/ProfileComp";
 
 
 export default function Profile()
@@ -12,7 +12,7 @@ export default function Profile()
                 </header>
                 <main>
                     <section>
-                        <ProfileCard />
+                        <ProfileComp />
                     </section>
                 </main>
                 <footer>
