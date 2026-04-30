@@ -93,13 +93,6 @@ export default function Home()
                             </div>
                         </div>
 
-                        <div className='flex flex-row items-center justify-center mt-10 mb-10 '>
-                            <div className='flex flex-col items-center justify-center w-70 bg-linear-[#fff] text-black'>
-                                <img src="/logo2.png" alt="" className='w-30'/>
-                                <h3 className='font-bold'>LOREM</h3>
-                                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum totam doloremque necessitatib!</span>
-                            </div>
-                        </div>
                     </div>
                     
                 </section>
