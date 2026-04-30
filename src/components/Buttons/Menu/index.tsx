@@ -18,23 +18,23 @@ export const Menu = () => {
   const [open, setOpen] = useState(false);
   const [advanced, setAdvanced] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
-  //Constante para usuário
-  const {user} = useUser()
-  
+  // Hover desktop
+  const [servicesHover, setServicesHover] = useState(false);
+
+  const { user } = useUser();
 
   return (
-    <nav className="relative z-50 px-4 py-3 bg-[#0F0F0F] text-white border-b border-white/10">
+    <nav className="relative z-50 px-4 py-3 bg-[#0F0F0F] text-white border-b border-white/10"
+        onMouseLeave={() => setServicesHover(false)}>
 
       {/* HEADER */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
 
         {/* ESQUERDA */}
         <div className="flex items-center gap-3">
-          <button
-            className="text-2xl md:hidden"
-            onClick={() => setOpen(true)}
-          >
+          <button className="text-2xl md:hidden" onClick={() => setOpen(true)}>
             ☰
           </button>
 
@@ -48,21 +48,94 @@ export const Menu = () => {
         {/* DESKTOP */}
         <div className="items-center hidden gap-6 md:flex">
 
-          <ul className="flex gap-6 ">
-            <li onClick={() => navigate("/")} className="flex flex-row items-center justify-center cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out"><Home className="w-7"/>Home</li>
-            <li onClick={() => navigate("/feed")} className="flex flex-row items-center justify-center cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out"><LayoutGrid className="w-7"/>Feed</li>
-            <li onClick={() => navigate("/services")} className="flex flex-row items-center justify-center cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out"><Briefcase className="w-7"/>Services</li>
-            <li onClick={() => navigate("/contacts")} className="flex flex-row items-center justify-center cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out"><Phone className="w-7"/>Contacts</li>
+          <ul className="flex gap-6" 
+          >
+
+            <li
+              onClick={() => navigate("/")}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Home className="w-7" /> Home
+            </li>
+
+            <li
+              onClick={() => navigate("/feed")}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <LayoutGrid className="w-7" /> Feed
+            </li>
+
+            {/* SERVICES */}
+            <li 
+              onMouseEnter={() => setServicesHover(true)}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+            >
+              <Briefcase className="w-7" />
+              Services
+            </li>
+
+            <li
+              onClick={() => navigate("/contacts")}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Phone className="w-7" /> Contacts
+            </li>
+
           </ul>
 
           <button
-            onClick={() =>
-              user ? setProfileOpen(true) : navigate("/login")
-            }
+            onClick={() => (/*user ?*/ setProfileOpen(true) /*: navigate("/login")*/)}
             className="bg-[#CC092F] px-4 py-1.5 rounded-md font-bold"
+            onMouseEnter={() => setServicesHover(false)}
           >
             {user ? user.name : "Login"}
           </button>
+        </div>
+      </div>
+
+      {/* 🔥 MEGA MENU ANIMADO */}
+      <div
+        onMouseEnter={() => setServicesHover(true)}
+        onMouseLeave={() => setServicesHover(false)}
+        className={`fixed left-0 top-[60px] w-screen bg-[#111] border-t border-white/10 shadow-lg z-40 transform transition-all duration-300 ease-out
+        ${servicesHover
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-4 pointer-events-none"
+          }`}
+      >
+        <div className="max-w-[1200px] mx-auto p-6">
+
+          <div className="grid grid-cols-3 gap-10">
+
+            {/* COLUNA 1 */}
+            <div className="flex flex-col gap-2 text-sm">
+              <span className="text-[#F7C600] font-bold">TRANSPORT</span>
+              <span className="hover:text-[#CC092F] cursor-pointer">Opção 1</span>
+              <span className="hover:text-[#CC092F] cursor-pointer">Opção 2</span>
+              <span className="hover:text-[#CC092F] cursor-pointer">Opção 3</span>
+            </div>
+
+            {/* COLUNA 2 */}
+            <div className="flex flex-col gap-2 text-sm">
+              <span className="text-[#F7C600] font-bold">Accommodation</span>
+              <span className="hover:text-[#CC092F] cursor-pointer">Opção 4</span>
+              <span className="hover:text-[#CC092F] cursor-pointer">Opção 5</span>
+              <span className="hover:text-[#CC092F] cursor-pointer">Opção 6</span>
+            </div>
+
+            {/* COLUNA 3 */}
+            <div className="flex justify-center">
+              <img
+                src="/dancando.png"
+                className="rounded-md object-cover h-[180px] w-full"
+              />
+            </div>
+
+          </div>
+
         </div>
       </div>
 
@@ -84,32 +157,28 @@ export const Menu = () => {
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-
         <div className="flex flex-col h-full">
 
-          {/* FECHAR */}
           <div className="flex justify-end p-4">
             <button onClick={() => setOpen(false)}>✕</button>
           </div>
 
-          {/* PERFIL */}
           <div className="flex items-center gap-3 px-4 pb-4 border-b border-white/10">
-            <img src={user?.avatar_url || "/logo2.png"} className="rounded-full w-14 h-14" />
+            <img
+              src={user?.avatar_url || "/logo2.png"}
+              className="rounded-full w-14 h-14"
+            />
             <div>
               <p className="text-sm font-bold">{user ? user.name : "seunome"}</p>
-              <p className="text-xs text-gray-400">{user ? user.email : "seuemail@gmail.com"}</p>
+              <p className="text-xs text-gray-400">
+                {user ? user.email : "seuemail@gmail.com"}
+              </p>
             </div>
           </div>
 
-          {/* 🔥 ÁREA DAS TELAS */}
           <div className="relative flex-1 overflow-hidden">
 
-            {/* 🟢 MENU PRINCIPAL */}
-            <div
-              className={`absolute inset-0 flex flex-col justify-between transition duration-300 ${
-                advanced ? "-translate-x-full" : "translate-x-0"
-              }`}
-            >
+            <div className="absolute inset-0 flex flex-col justify-between">
               <ul className="flex flex-col gap-5 p-6">
 
                 <li onClick={() => navigate("/")} className="flex gap-2">
@@ -119,9 +188,30 @@ export const Menu = () => {
                 <li onClick={() => navigate("/feed")} className="flex gap-2">
                   <LayoutGrid /> Feed
                 </li>
-                <li onClick={() => navigate("/services")} className="flex gap-2">
-                  <Briefcase /> Services
+
+                {/* SERVICES MOBILE COM ANIMAÇÃO */}
+                <li className="flex flex-col gap-2">
+                  <div
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    className="flex gap-2 cursor-pointer"
+                  >
+                    <Briefcase /> Services
+                  </div>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      servicesOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="flex flex-col gap-2 pt-2 ml-6 text-sm text-gray-300">
+                      <span>Opção 1</span>
+                      <span>Opção 2</span>
+                      <span>Opção 3</span>
+                      <span>Opção 4</span>
+                    </div>
+                  </div>
                 </li>
+
                 <li onClick={() => navigate("/contacts")} className="flex gap-2">
                   <Phone /> Contact
                 </li>
@@ -136,66 +226,37 @@ export const Menu = () => {
               </ul>
 
               <div className="p-6 border-t border-white/10">
-                <BtnInOut  type={1} />
+                <BtnInOut type={1} />
               </div>
-            </div>
-
-            {/* 🔴 MENU AVANÇADO */}
-            <div
-              className={`absolute inset-0 flex flex-col justify-between transition duration-300 ${
-                advanced ? "translate-x-0" : "translate-x-full"
-              }`}
-            >
-
-              {/* HEADER */}
-              <div className="flex items-center gap-3 p-4 border-b border-white/10">
-                <button onClick={() => setAdvanced(false)}>←</button>
-                <span className="text-[#F7C600] font-bold cursor-pointer">
-                  Avançado
-                </span>
-              </div>
-
-              {/* OPÇÕES */}
-              <ul className="flex flex-col gap-4 p-6 text-sm">
-                <li className="flex gap-2" onClick={() => navigate("/profile")}><User /> Profile</li>
-                <li className="flex gap-2" onClick={() => navigate("/post")}><PlusSquare /> Post</li>
-                <li className="flex gap-2" onClick={() => navigate("/analysis")}><BarChart3 /> Access Analysis</li>
-                <li className="flex gap-2" onClick={() => navigate("/settings")}><Settings /> Settings</li>
-
-              </ul>
-
-              {/* LOGOUT */}
-              <div className="p-6 border-t border-white/10">
-                <BtnInOut  type={2} />
-              </div>
-
             </div>
 
           </div>
         </div>
       </div>
 
-      {/* 🖥️ DRAWER PERFIL */}
+      {/* PERFIL */}
       <div
-        className={`fixed top-0 right-0 h-full w-[320px] bg-[#0F0F0F] transform transition duration-300 ${
+        className={`fixed top-0 right-0 h-full w-[320px] bg-[#0F0F0F] transform transition ${
           profileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full p-6">
 
           <div className="flex justify-between mb-6">
-            <h2 className="text-[#F7C600] font-bold">{user ? user.name : "Perfil"}</h2>
+            <h2 className="text-[#F7C600] font-bold">
+              {user ? user.name : "Perfil"}
+            </h2>
             <button onClick={() => setProfileOpen(false)}>✕</button>
           </div>
 
           <ul className="flex flex-col gap-4 text-sm">
-                <li className="flex gap-2 cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out" onClick={() => navigate("/profile")}><User /> Profile</li>
-                <li className="flex gap-2 cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out" onClick={() => navigate("/post")}><PlusSquare /> Post</li>
-                <li className="flex gap-2 cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out" onClick={() => navigate("/analysis")}><BarChart3 /> Access Analysis</li>
-                <li className="flex gap-2 cursor-pointer hover:text-[#CC092F] transition-all duration-300 ease-in-out" onClick={() => navigate("/settings")}><Settings /> Settings</li>
+            <li onClick={() => navigate("/profile")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><User /> Profile</li>
+            <li onClick={() => navigate("/post")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><PlusSquare /> Post</li>
+            <li onClick={() => navigate("/analysis")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><BarChart3 /> Access Analysis</li>
+            <li onClick={() => navigate("/settings")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><Settings /> Settings</li>
           </ul>
 
-          <BtnInOut  type={3} />
+          <BtnInOut type={3} />
         </div>
       </div>
 

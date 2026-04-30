@@ -1,5 +1,6 @@
 import { Menu } from "../../components/Buttons/Menu";
 import { CreatePost } from "../../components/CreatePost";
+import { PostWizard } from "../../components/PostWizard";
 
 
 export default function Post ()
@@ -14,7 +15,7 @@ export default function Post ()
             <main>
                 <section>
                     <div>
-                        <CreatePost />
+                        <PostWizard />
                     </div>
                 </section>
             </main>
