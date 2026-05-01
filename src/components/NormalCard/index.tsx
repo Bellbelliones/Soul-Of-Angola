@@ -13,7 +13,7 @@ export const NormalCard = ({ icone, title, text, image }: NormalCardProps) =>{
     return(
         <>
             <div 
-            className={`flex flex-col items-center justify-center w-90 text-white p-6 border border-[#262626] shadow-xl
+            className={`flex flex-col items-center justify-center w-90 text-white p-6 border border-[#262626]  shadow shadow-[#F7C600]
              ${image !== "" ? "relative overflow-hidden bg-cover bg-center bg-[#1A1A1A]" : "bg-[#1A1A1A]"}`}
             style={{backgroundImage: `url('${image}')`}}
             >

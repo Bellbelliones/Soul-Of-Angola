@@ -56,7 +56,6 @@ export default function Login()
                     </div>
                     <h2 className="mb-10 text-2xl font-bold text-center text-gray-700 ">LOGIN</h2>
                     <form  className="mb-10 ">
-                        
                         <InputFloating label='E-mail' type='email' value={email} onChange={setEmail}/>
                         
                         <InputFloating label='Password' type='password' value={password} onChange={setPassword}/>
