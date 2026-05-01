@@ -4,6 +4,7 @@ import "../../styles/global.css"
 import {  Camera, GemIcon, Map, Palette, ScrollText } from 'lucide-react';
 import { NormalCard } from '../../components/NormalCard';
 import { BloxCounters } from '../../components/BloxCounters';
+import { Reveal } from '../../components/Reveal/Reveal';
 
 export default function Home()
 {
@@ -23,6 +24,7 @@ export default function Home()
                 </section>
                 <section>
                     <div className="w-full">
+                    <Reveal>
                         <div className='flex flex-col items-center justify-center mt-10 mb-10 '>
                             <h2 className='text-2xl  text-center text-[#F7C600] font-bold'>About Us</h2>
                             <div className='border-b border-b-[#F7C600] w-10 text-center mb-3'></div>
@@ -30,7 +32,8 @@ export default function Home()
                                 We are a platform dedicated to bringing the richness of Angolan culture to the world, a country marked by deep history, cultural diversity, and a unique identity. Angola possesses vast natural resources and valuable spaces — from breathtaking landscapes to traditions passed down through generations — that reflect its true essence. Our role is to connect the world to this reality, giving visibility to the authenticity and greatness of Angola.
                                 </span>
                         </div>
-
+                    </Reveal>
+                    <Reveal>
                         {/* Cards */}
                         <div className='flex flex-row flex-wrap items-center justify-center mt-10 mb-10 '>
                             <NormalCard 
@@ -54,7 +57,8 @@ export default function Home()
                             />
                             
                         </div>
-
+                    </Reveal>
+                    <Reveal>
                         {/* Blocos Contadores */}
                         <div className='w-full bg-center bg-cover relative overflow-hidden bg-linear-[1A1A1A] p-6'
                         style={{backgroundImage: "url('/miradourodalua.png')"}}
@@ -91,6 +95,7 @@ export default function Home()
                                 </div>
                             </div>
                         </div>
+                    </Reveal>
 
                     </div>
                     
