@@ -8,6 +8,7 @@ import {
   PlusSquare,
   BarChart3,
   Phone,
+  ArrowBigLeftDash,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { BtnInOut } from "../BtnInOut";
@@ -217,11 +218,75 @@ export const Menu = () => {
                 </li>
 
                 <li
-                  onClick={() => setAdvanced(true)}
+                  onClick={() => {
+
+                    setAdvanced(true);
+                    setOpen(false);
+                  }}
                   className="flex gap-2 text-[#F7C600] font-bold cursor-pointer"
                 >
                   <Settings /> Avançando
                 </li>
+
+              </ul>
+
+              <div className="p-6 border-t border-white/10">
+                <BtnInOut type={1} />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/*Avançado Mobile option*/}
+      <div
+        className={`fixed top-0 left-0 h-full w-[75%] bg-[#0F0F0F] transform transition duration-300 ${
+          advanced ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+
+          <div className="flex justify-end p-4">
+            <button onClick={() => setAdvanced(false)}>✕</button>
+          </div>
+
+          <div className="flex items-center gap-3 px-4 pb-4 border-b border-white/10">
+            <img
+              src={user?.avatar_url || "/logo2.png"}
+              className="rounded-full w-14 h-14"
+            />
+            <div>
+              <p className="text-sm font-bold">{user ? user.name : "seunome"}</p>
+              <p className="text-xs text-gray-400">
+                {user ? user.email : "seuemail@gmail.com"}
+              </p>
+            </div>
+          </div>
+
+          <div className="relative flex-1 overflow-hidden ">
+            <div className="flex flex-col items-start justify-center mt-3 ml-3">
+              <button className="text-[#F7C600] flex-row flex"
+              onClick={() =>{
+                setOpen(true);
+                setAdvanced(false);
+              }}
+              ><ArrowBigLeftDash /> Back</button>
+              <h2 className=" font-title w-full text-[#fff] text-center font-semibold">Advanced</h2>
+              <div className="flex items-center justify-center w-full">
+                <div className="w-[80%] border-b border-b-[#F7C600]"></div>
+              </div>
+            </div>
+            <br /><br />
+            <div className="absolute inset-0 flex flex-col justify-between mt-20">
+              <ul className="flex flex-col gap-5 p-6">
+                <li onClick={() => navigate("/profile")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><User /> Profile</li>
+                <li onClick={() => navigate("/post")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><PlusSquare /> Post</li>
+                <li onClick={() => navigate("/analysis")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><BarChart3 /> Access Analysis</li>
+                <li onClick={() => navigate("/settings")} className="flex gap-2 hover:text-[#CC092F] cursor-pointer"><Settings /> Settings</li>
+                
+
+               
 
               </ul>
 

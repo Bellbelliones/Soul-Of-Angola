@@ -10,7 +10,7 @@ function getCroppedImg(imageSrc: string, crop: any): Promise<string> {
       img.src = url;
     });
 
-  return new Promise(async (resolve, reject) => {
+  return new Promise(async (resolve) => {
     const image = await createImage(imageSrc);
 
     const canvas = document.createElement("canvas");

@@ -1,5 +1,4 @@
 import { Menu } from "../../components/Buttons/Menu";
-import { CreatePost } from "../../components/CreatePost";
 import { PostWizard } from "../../components/PostWizard";
 
 

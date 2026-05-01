@@ -1,8 +1,7 @@
 import { Menu } from '../../components/Buttons/Menu/index';
 import { VideoShowFront } from '../../components/VideoShowFront/index';
 import "../../styles/global.css"
-import { Parceiros } from "../../components/Parceiros";
-import { BookOpen, Camera, Gem, GemIcon, LayoutGrid, Map, MapPin, Mountain, Palette, Palmtree, ScrollText } from 'lucide-react';
+import {  Camera, GemIcon, Map, Palette, ScrollText } from 'lucide-react';
 import { NormalCard } from '../../components/NormalCard';
 import { BloxCounters } from '../../components/BloxCounters';
 
