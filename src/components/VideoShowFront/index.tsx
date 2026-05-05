@@ -1,8 +1,18 @@
 
 export const VideoShowFront = () =>{
+      //scroll
+      const scrollToSection = (id: string) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    };
     return (
         <>
-            <div className="relative w-full h-[90vh] z-0 overflow-hidden">
+            <div className=" w-full h-[90vh] z-0 overflow-hidden">
             {/* Vídeo */}
             <video
                 className="absolute top-0 left-0 w-full h-full object-cover"
@@ -38,11 +48,11 @@ export const VideoShowFront = () =>{
 
                     <div className="mt-8 flex gap-4 justify-center">
                         
-                        <button className="bg-[#F7C600] text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
+                        <button className="bg-[#F7C600] text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition" onClick={() => scrollToSection("discoverangola")}>
                         Explore
                         </button>
 
-                        <button className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">
+                        <button className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition" onClick={() => scrollToSection("aboutus")}>
                         Learn more
                         </button>
 

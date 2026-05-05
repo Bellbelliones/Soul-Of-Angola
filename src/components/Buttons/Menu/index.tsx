@@ -9,12 +9,17 @@ import {
   BarChart3,
   Phone,
   ArrowBigLeftDash,
+  Info,
+  Compass,
+  Sparkles,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { BtnInOut } from "../BtnInOut";
 import { useUser } from "../../../hooks/useUser";
 
 export const Menu = () => {
+
+  //status normal
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [advanced, setAdvanced] = useState(false);
@@ -24,10 +29,23 @@ export const Menu = () => {
   // Hover desktop
   const [servicesHover, setServicesHover] = useState(false);
 
+
+  //status de sessão
   const { user } = useUser();
 
+  //scroll
+  const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
+
   return (
-    <nav className="relative z-50 px-4 py-3 bg-[#0F0F0F] text-white border-b border-white/10"
+    <nav className="relative w-full z-50 px-4 py-3 bg-[#0F0F0F] text-white border-b border-white/10"
         onMouseLeave={() => setServicesHover(false)}>
 
       {/* HEADER */}
@@ -60,6 +78,31 @@ export const Menu = () => {
               <Home className="w-7" /> Home
             </li>
 
+            {/*Local Place */}
+            <li
+              onClick={() => scrollToSection("aboutus")}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Info className="w-7" /> AboutUs
+            </li>
+            <li
+              onClick={() => scrollToSection("discoverangola")}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Compass className="w-7" /> Discover
+            </li>
+            <li
+              onClick={() => scrollToSection("ourservice")}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Sparkles className="w-7" /> Experience
+            </li>
+
+            {/*End Local Space */}
+
             <li
               onClick={() => navigate("/feed")}
               className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
@@ -78,7 +121,7 @@ export const Menu = () => {
             </li>
 
             <li
-              onClick={() => navigate("/contacts")}
+              onClick={() => scrollToSection("callback")}
               className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
               onMouseEnter={() => setServicesHover(false)}
             >
@@ -185,6 +228,41 @@ export const Menu = () => {
                 <li onClick={() => navigate("/")} className="flex gap-2">
                   <Home /> Home
                 </li>
+
+            {/*Local Place */}
+            <li
+              onClick={() => {
+                scrollToSection("aboutus");
+                setOpen(false);
+              }
+              }
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Info className="w-7" /> AboutUs
+            </li>
+            <li
+              onClick={() => {
+                scrollToSection("discoverangola")
+                setOpen(false);
+              }}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Compass className="w-7" /> Discover
+            </li>
+            <li
+              onClick={() => {
+                scrollToSection("ourservice")
+                setOpen(false);
+              }}
+              className="flex items-center gap-1 cursor-pointer hover:text-[#CC092F] transition"
+              onMouseEnter={() => setServicesHover(false)}
+            >
+              <Sparkles className="w-7" /> Experience
+            </li>
+
+            {/*End Local Space */}
 
                 <li onClick={() => navigate("/feed")} className="flex gap-2">
                   <LayoutGrid /> Feed
